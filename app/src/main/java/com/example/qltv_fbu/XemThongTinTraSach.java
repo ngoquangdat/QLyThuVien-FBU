@@ -23,6 +23,7 @@ import java.sql.Statement;
 import java.text.BreakIterator;
 
 public class XemThongTinTraSach extends AppCompatActivity {
+    //khai báo các biến giao diện
     TextView timKiemTS,tenXemTS,lopXemTS,sdtXemTS,idSachXemTS,tenSachXemTS,dateMuonXemTS,dateTraXemTS;
     Button btnBackXemTS;
     ImageButton btnTimKiemTS;
@@ -36,6 +37,7 @@ public class XemThongTinTraSach extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        //ánh xạ id giao diện với các biến giao diện tương ứng
         timKiemTS=findViewById(R.id.timKiemTS);
         tenXemTS=findViewById(R.id.tenXemTS);
         lopXemTS=findViewById(R.id.lopXemTS);
@@ -46,7 +48,7 @@ public class XemThongTinTraSach extends AppCompatActivity {
         dateTraXemTS=findViewById(R.id.dateTraXemTS);
         btnBackXemTS=findViewById(R.id.btnBackXemTS);
         btnTimKiemTS=findViewById(R.id.btnTimKiemTS);
-
+        //hàm xử lý sự kiện khi click vào nút quay lại
         btnBackXemTS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,17 +56,24 @@ public class XemThongTinTraSach extends AppCompatActivity {
                 startActivity(myintent);
             }
         });
+
+        //hàm xử lý sự kiện khi click vào nut tìm kiếm
         btnTimKiemTS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //kết nôi csdl
                 Connection connection= SQLmanagement.connectionSQLSever();
                 try {
                     if(connection!=null){
                         BreakIterator id;
+                        //tạo câu lệnh sql xem thông tin bảng ThongTinPhat
                         String sqlXem="select * from ThongTinTraSach where TenDocGia = '"+timKiemTS.getText().toString()+"'";
+                        //tạo đối tượng statement
                         Statement st=connection.createStatement();
+                        //chạy câu lệnh sql
                         ResultSet rs=st.executeQuery(sqlXem);
                         while (rs.next()){
+                            //ánh xạ các thông tin vưà truy xuất từ câu lệnh sql lên id của các thành phần giao diện tương ứng
                             tenXemTS.setText(rs.getString(1));
                             lopXemTS.setText(rs.getString(2));
                             sdtXemTS.setText(rs.getString(3));

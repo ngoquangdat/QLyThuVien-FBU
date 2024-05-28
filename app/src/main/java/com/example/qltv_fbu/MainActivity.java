@@ -57,19 +57,21 @@ public class MainActivity extends AppCompatActivity {
                     logins = Logins.getuserlist(user,passwords);
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
-                }if(user.length()==0 || passwords.length() ==0){
+                }if(user.length()==0 || passwords.length() ==0){//câu lệnh if kiểm tra nếu ô tài khoản và mật khẩu bỏ trống
                     Toast.makeText(MainActivity.this, "Vui lòng nhập tài khoản hoặc mật khâu", Toast.LENGTH_SHORT).show();
                 }
-                else if(logins.getUser().equals(user) && logins.getPass().equals(passwords)){
+                else if(logins.getUser().equals(user) && logins.getPass().equals(passwords)){//câu lệnh if kiểm tra nếu ô tài khoản và mật khẩu trùng với csdl
                     Toast.makeText(MainActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this,trangchu.class);
                     startActivity(intent);
-                }else{
+                }else{//câu lệnh else kiểm tra nếu ô tài khoản và mật khẩu sai với csdl
                     Toast.makeText(MainActivity.this, "Tài khoản mật khẩu của bạn không chính xác", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
+
+    //ánh xạ id
     private void Init() {
         btnTkDN = findViewById(R.id.btnTkDN);
         btnMKDN = findViewById(R.id.btnMKDN);

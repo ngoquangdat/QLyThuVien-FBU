@@ -23,6 +23,8 @@ import java.sql.Statement;
 import java.text.BreakIterator;
 
 public class XemThongTinPhat extends AppCompatActivity {
+
+    //khai báo các biến giao diện
     EditText timKiem,tenDocGiaXemPS,sdtXemPS,maSachXemPS,tenSachXemPS,hanTraXemPS,ngayTraXemPS,tienPhatXemPS;
     Button btnBackXemPS;
     ImageButton btnTimKiemPS;
@@ -36,6 +38,7 @@ public class XemThongTinPhat extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        //ánh xạ id giao diện với các biến giao diện tương ứng
         timKiem=findViewById(R.id.timKiem);
         tenDocGiaXemPS=findViewById(R.id.tenDocGiaXemPS);
         sdtXemPS=findViewById(R.id.sdtXemPS);
@@ -46,17 +49,24 @@ public class XemThongTinPhat extends AppCompatActivity {
         tienPhatXemPS=findViewById(R.id.tienPhatXemPS);
         btnBackXemPS=findViewById(R.id.btnBackXemPS);
         btnTimKiemPS=findViewById(R.id.btnTimKiemPS);
+
+        //hàm xử lý sự kiện khi click vào nut tìm kiếm
         btnTimKiemPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //kết nôi csdl
                 Connection connection= SQLmanagement.connectionSQLSever();
                 try {
                     if(connection!=null){
                         BreakIterator id;
+                        //tạo câu lệnh sql xem thông tin bảng ThongTinPhat
                         String sqlXem="select * from ThongTinPhat where TenDocGia = '"+timKiem.getText().toString()+"'";
+                        //tạo đối tượng statement
                         Statement st=connection.createStatement();
+                        //chạy câu lệnh sql
                         ResultSet rs=st.executeQuery(sqlXem);
                         while (rs.next()){
+                            //ánh xạ các thông tin vưà truy xuất từ câu lệnh sql lên id của các thành phần giao diện tương ứng
                             tenDocGiaXemPS.setText(rs.getString(1));
                             sdtXemPS.setText(rs.getString(2));
                             maSachXemPS.setText(rs.getString(3));
@@ -71,6 +81,7 @@ public class XemThongTinPhat extends AppCompatActivity {
                 }
             }
         });
+        //hàm xử lý sự kiện khi click vào nút quay lại
         btnBackXemPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -23,6 +23,8 @@ import java.sql.Statement;
 import java.text.BreakIterator;
 
 public class XemThongTinMuonSach extends AppCompatActivity {
+
+    //khai báo các biến giao diện
     TextView timKiemMS,tenDGXemMS,lopXemMS,sdtXemMS,idSachXemMS,tenSachXemMS,dateMuonXemMS,timeMuonXemMS;
     Button btnBackXemMS;
     ImageButton btnTimKiemMS;
@@ -36,6 +38,8 @@ public class XemThongTinMuonSach extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        //ánh xạ id giao diện tướng ứng với các biến giao diện
         timKiemMS=findViewById(R.id.timKiemMS);
         tenDGXemMS=findViewById(R.id.tenDGXemMS);
         lopXemMS=findViewById(R.id.lopXemMS);
@@ -47,18 +51,23 @@ public class XemThongTinMuonSach extends AppCompatActivity {
         btnBackXemMS=findViewById(R.id.btnBackXemMS);
         btnTimKiemMS=findViewById(R.id.btnTimKiemMS);
 
-
+        //hàm xử lý sự kiện khi click vào nút tìm kiêm
         btnTimKiemMS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //kết nối csdl
                 Connection connection= SQLmanagement.connectionSQLSever();
                 try {
                     if(connection!=null){
                         BreakIterator id;
+                        //tạo câu lệnh xem thông tin trong bảng PhieuMuon
                         String sqlXem="select * from PhieuMuon where TenDocGia = '"+timKiemMS.getText().toString()+"'";
+                        //tạo đối tượng statement
                         Statement st=connection.createStatement();
+                        //thực thi câu lệnh sql
                         ResultSet rs=st.executeQuery(sqlXem);
                         while (rs.next()){
+                            //ánh xạ các thông tin vưà truy xuất từ câu lệnh sql lên id của các thành phần giao diện tương ứng
                             tenDGXemMS.setText(rs.getString(1));
                             lopXemMS.setText(rs.getString(2));
                             sdtXemMS.setText(rs.getString(3));
@@ -73,6 +82,8 @@ public class XemThongTinMuonSach extends AppCompatActivity {
                 }
             }
         });
+
+        //hàm xử lý sự kiện khi click vào nút quay lại
         btnBackXemMS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

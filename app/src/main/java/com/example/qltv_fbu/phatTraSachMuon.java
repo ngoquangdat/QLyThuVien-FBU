@@ -23,6 +23,7 @@ import java.sql.Statement;
 import java.text.BreakIterator;
 
 public class phatTraSachMuon extends AppCompatActivity {
+    //khai báo các biến giao diện
     ImageButton backPS;
     TextView tenDGPS,sdtPS,maSachPS,tenSachPS,hanTraPS,ngayTraPS,tienPhatPS;
     Button btnThemPS,btnSuaPS,btnXoaPS,btnXemPS;
@@ -36,6 +37,8 @@ public class phatTraSachMuon extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        //ánh xạ id các thành phần giao diện với các biến giao diện tương ứng
         backPS=findViewById(R.id.backPS);
         tenDGPS=findViewById(R.id.tenDGPS);
         sdtPS=findViewById(R.id.sdtPS);
@@ -48,24 +51,33 @@ public class phatTraSachMuon extends AppCompatActivity {
         btnSuaPS=findViewById(R.id.btnSuaPS);
         btnXoaPS=findViewById(R.id.btnXoaPS);
         btnXemPS=findViewById(R.id.btnXemPS);
+
+        //hàm xử lý sự kiện khi click vào nút quay lại
         backPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //khai báo intent cho phép chuyển giao diện từ giao diện phạt tr sách đến giao diện trang chủ
                 Intent myintent = new Intent(phatTraSachMuon.this, trangchu.class);
                 startActivity(myintent);
             }
         });
+
+        //hàm xử lý sự kiện khi click vào nút thêm
         btnThemPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //kết nối csdl
                 Connection connection= SQLmanagement.connectionSQLSever();
                 try {
                     if(connection!=null){
                         BreakIterator id;
+                        //tạo câu lệnh sql thêm thông tin vào bảng ThongTinPhat
                         String sqlThem="insert into ThongTinPhat values('"+tenDGPS.getText().toString()+"','"+sdtPS.getText().toString()+
                                 "','"+maSachPS.getText().toString()+"','"+tenSachPS.getText().toString()+"','"+hanTraPS.getText().toString()
                                 +"','"+ngayTraPS.getText().toString()+"','"+tienPhatPS.getText().toString()+"')";
+                        //tạo đối tượng statement
                         Statement st=connection.createStatement();
+                        //thực thi câu lệnh sql
                         ResultSet rs=st.executeQuery(sqlThem);
                     }
                 } catch (SQLException exception) {
@@ -73,18 +85,24 @@ public class phatTraSachMuon extends AppCompatActivity {
                 }
             }
         });
+
+        //hàm xử lý sự kiện khi click vào nút sửa
         btnSuaPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //kết nối csdl
                 Connection connection=SQLmanagement.connectionSQLSever();
                 try {
                     if(connection!=null){
                         BreakIterator id;
+                        //tạo câu lệnh sql sửa thông tin trong bảng ThongTinPhat
                         String sqlSua="update ThongTinPhat set SoDienThoai = '"+sdtPS.getText().toString()+"', MaSach='"+
                                 maSachPS.getText().toString()+"',TenSach='"+tenSachPS.getText().toString()+"',HanTra='"+
                                 hanTraPS.getText().toString()+"',NgayTra='"+ngayTraPS.getText().toString()+"',TienPhat='"+
                                 tienPhatPS.getText().toString()+"'where TenDocGia = '"+tenDGPS.getText().toString()+"'";
+                        //tạo đối tượng statement
                         Statement st=connection.createStatement();
+                        //thực thi câu lệnh sql
                         ResultSet rs=st.executeQuery(sqlSua);
                     }
                 } catch (SQLException exception) {
@@ -92,15 +110,21 @@ public class phatTraSachMuon extends AppCompatActivity {
                 }
             }
         });
+
+        //hàm xử lý sự kiện khi click vào nút xoóa
         btnXoaPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //kết nối csdl
                 Connection connection=SQLmanagement.connectionSQLSever();
                 try {
                     if(connection!=null){
                         BreakIterator id;
+                        //tạo câu lệnh sql xóa thông tin trong bảng ThongTinPhat
                         String sqlXoa="delete ThongTinPhat where TenDocGia = '"+tenDGPS.getText().toString()+"'";
+                        //tạo đối tượng statement
                         Statement st=connection.createStatement();
+                        //thực thi câu lệnh sql
                         ResultSet rs=st.executeQuery(sqlXoa);
                     }
                 } catch (SQLException exception) {
@@ -108,9 +132,11 @@ public class phatTraSachMuon extends AppCompatActivity {
                 }
             }
         });
+        //hàm xử lý sự kiện khi click vào nút xem
         btnXemPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //khai báo intent cho phép chuyển giao diện từ giao diện phạt trả sách đến giao diện xem thông tin phạt
                 Intent myintent = new Intent(phatTraSachMuon.this, XemThongTinPhat.class);
                 startActivity(myintent);
             }
