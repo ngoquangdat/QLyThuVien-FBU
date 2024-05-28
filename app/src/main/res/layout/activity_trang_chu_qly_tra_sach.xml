@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#869BE3"
+    tools:context=".TrangChuQlyTraSach">
+
+    <LinearLayout
+        android:layout_width="401dp"
+        android:layout_height="682dp"
+        android:layout_marginBottom="4dp"
+        android:background="#869BE3"
+        android:orientation="vertical"
+        android:paddingLeft="50dp"
+        android:paddingTop="80dp"
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quản Lý Trả Sách"
+            android:textAlignment="center"
+            android:layout_marginBottom="5dp"
+            android:textColor="#000"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/tenDGTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/tk_text"
+                android:width="300dp"
+                android:ems="10"
+                android:hint="Tên độc giả"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                app:backgroundTint="@null" />
+
+            <EditText
+                android:id="@+id/lopHCTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:width="300dp"
+                android:background="@drawable/tk_text"
+                android:ems="10"
+                android:hint="Lớp hành chính"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/sdtTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:width="300dp"
+                android:background="@drawable/tk_text"
+                android:ems="10"
+                android:hint="Số điện thoại"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                app:backgroundTint="@null" />
+
+            <EditText
+                android:id="@+id/idSachTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:width="300dp"
+                android:background="@drawable/tk_text"
+                android:ems="10"
+                android:hint="Mã sách"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/tenSachTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:width="300dp"
+                android:background="@drawable/tk_text"
+                android:ems="10"
+                android:hint="Tên sách"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                app:backgroundTint="@null" />
+
+            <EditText
+                android:id="@+id/dateTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:width="300dp"
+                android:background="@drawable/tk_text"
+                android:ems="10"
+                android:hint="Ngày trả sách"
+                android:inputType="date"
+                android:paddingLeft="20dp"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/dateDKTS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/tk_text"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:hint="Ngày đăng ký mượn"
+            android:inputType="date"
+            android:paddingLeft="20dp"
+            app:backgroundTint="@null" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnThemTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_button"
+                android:text="Thêm"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/btnSuaTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_button"
+                android:text="Sửa"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnXoaTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_button"
+                android:text="Xóa"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/btnXemTS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/custom_button"
+                android:text="Xem"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnBackTS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#869BE3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.026"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+</androidx.constraintlayout.widget.ConstraintLayout>
