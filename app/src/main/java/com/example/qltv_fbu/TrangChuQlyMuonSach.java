@@ -79,13 +79,12 @@ ImageButton btnBackMS;
             public void onClick(View v) {
                 //kết nối csdl
                 Connection connection=SQLmanagement.connectionSQLSever();
+                Toast.makeText(TrangChuQlyMuonSach.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;
                         //tạo câu lệnh sql thêm thông tin vào bảng PhieuMuon
-                        String sqlThem="insert into PhieuMuon values('"+tenDocGiaMS.getText().toString()+"','"+
-                                lopHCMS.getText().toString()+"','"+sdtMS.getText().toString()+"','"+idSachMS.getText().toString()+"','"
-                                +tenSachMS.getText().toString()+"','"+timeMS.getText().toString()+"','"+dateMS.getText().toString()+"')";
+                        String sqlThem="insert into PhieuMuon values ('"+tenDocGiaMS.getText().toString()+"','"+lopHCMS.getText().toString()+"','"+sdtMS.getText().toString()+"','"+idSachMS.getText().toString()+"','"+tenSachMS.getText().toString()+"','"+timeMS.getText().toString()+"','"+dateMS.getText().toString()+"')";
                         //tạo đối tượng statement
                         Statement st=connection.createStatement();
                         //chạy câu lệnh sql
@@ -96,21 +95,18 @@ ImageButton btnBackMS;
                 }
             }
         });
-
         //hàm xử lý sự kiện khi click vào nút sửa
         btnSuaMS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //kết nối csdl
                 Connection connection=SQLmanagement.connectionSQLSever();
+                Toast.makeText(TrangChuQlyMuonSach.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;
                         //tạo câu lệnh sql sửa thông tin trong bảng PhieuMuon
-                        String sqlSua="update PhieuMuon set LopHanhChinh = '"+lopHCMS.getText().toString()+
-                                "', SoDienThoai='"+sdtMS.getText().toString()+"',MaSach='"+idSachMS.getText().toString()+"',TenSach='"+
-                                tenSachMS.getText().toString()+"',ThoiGianMuon='"+timeMS.getText().toString()+"',NgayMuon='"+
-                                dateMS.getText().toString()+"'where TenDocGia = '"+tenDocGiaMS.getText().toString()+"'";
+                        String sqlSua="update PhieuMuon set LopHanhChinh = '"+lopHCMS.getText().toString()+"',SoDienThoai='"+sdtMS.getText().toString()+"',MaSach='"+idSachMS.getText().toString()+"',TenSach='"+tenSachMS.getText().toString()+"',ThoiGianMuon='"+timeMS.getText().toString()+"',NgayMuon='"+dateMS.getText().toString()+"'where TenDocGia ='"+tenDocGiaMS.getText().toString()+"'";
                         //tạo đối tượng statement
                         Statement st=connection.createStatement();
                         //chạy câu lệnh sql
@@ -129,6 +125,7 @@ ImageButton btnBackMS;
             public void onClick(View v) {
                 //kết nối csdl
                 Connection connection=SQLmanagement.connectionSQLSever();
+                Toast.makeText(TrangChuQlyMuonSach.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;

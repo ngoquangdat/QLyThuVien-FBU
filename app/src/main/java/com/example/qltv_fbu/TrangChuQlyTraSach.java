@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -66,13 +67,12 @@ public class TrangChuQlyTraSach extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Connection connection= SQLmanagement.connectionSQLSever();//kết nối với csdl
+                Toast.makeText(TrangChuQlyTraSach.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;
                         //câu lệnh thêm dòng mới vào bảng ThongTinTraSach trong csdl
-                        String sqlThem="insert into ThongTinTraSach values('"+tenDGTS.getText().toString()+"','"+
-                                lopHCTS.getText().toString()+"','"+sdtTS.getText().toString()+"','"+idSachTS.getText().toString()+"','"+
-                                tenSachTS.getText().toString()+"','"+dateTS.getText().toString()+"','"+dateDKTS.getText().toString()+"')";
+                        String sqlThem="insert into ThongTinTraSach values ('"+tenDGTS.getText().toString()+"','"+lopHCTS.getText().toString()+"','"+sdtTS.getText().toString()+"','"+idSachTS.getText().toString()+"','"+tenSachTS.getText().toString()+"','"+dateTS.getText().toString()+"','"+dateDKTS.getText().toString()+"')";
                         //tạo đối tượng statement
                         Statement st=connection.createStatement();
                         //Thực thi câu lệnh sql
@@ -89,14 +89,12 @@ public class TrangChuQlyTraSach extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Connection connection=SQLmanagement.connectionSQLSever();//kết nối với csdl
+                Toast.makeText(TrangChuQlyTraSach.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;
                         //tạo câu lệnh sql update bảng ThongTinTraSach trong csdl
-                        String sqlSua="update ThongTinTraSach set LopHanhChinh = '"+lopHCTS.getText().toString()+
-                                "', SoDienThoai='"+sdtTS.getText().toString()+"',MaSach='"+idSachTS.getText().toString()+
-                                "',TenSach='"+tenSachTS.getText().toString()+"',NgayDangKyMuon='"+dateDKTS.getText().toString()+
-                                "',NgayTra='"+dateTS.getText().toString()+"'where TenDocGia = '"+tenDGTS.getText().toString()+"'";
+                        String sqlSua="update ThongTinTraSach set LopHanhChinh = '"+lopHCTS.getText().toString()+"',SoDienThoai='"+sdtTS.getText().toString()+"',MaSach='"+idSachTS.getText().toString()+"',TenSach='"+tenSachTS.getText().toString()+"',NgayDangKyMuon='"+dateDKTS.getText().toString()+"',NgayTra='"+dateTS.getText().toString()+"'where TenDocGia = '"+tenDGTS.getText().toString()+"'";
                         //tạo đối tượng statement
                         Statement st=connection.createStatement();
                         //thực thi câu lệnh sql
@@ -114,6 +112,7 @@ public class TrangChuQlyTraSach extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Connection connection=SQLmanagement.connectionSQLSever();//kết nối với csdl
+                Toast.makeText(TrangChuQlyTraSach.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;

@@ -76,14 +76,12 @@ public class docthuc extends AppCompatActivity {
             public void onClick(View v) {
                 //kết nối với csdl
                 Connection connection= SQLmanagement.connectionSQLSever();
+                Toast.makeText(docthuc.this, "Gửi thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;
                         //khởi tạo câu lệnh sql thêm thông tin vào bảng ThongTinDocThuc
-                        String sqlThem="insert into ThongTinDocThuc values('"+tenDocGiaDT.getText().toString()+"','"+
-                                sdtDT.getText().toString()+"','"+idSachDT.getText().toString()+"','"+
-                                tenSachDT.getText().toString()+"','"+hanTraDT.getText().toString()+"','"+ghiChuDT.getText().toString()
-                                +"')";
+                        String sqlThem="insert into ThongTinDocThuc values ('"+tenDocGiaDT.getText().toString()+"','"+sdtDT.getText().toString()+"','"+idSachDT.getText().toString()+"','"+tenSachDT.getText().toString()+"','"+hanTraDT.getText().toString()+"','"+ghiChuDT.getText().toString()+"')";
                         //khởi tạo đối tượng statement
                         Statement st=connection.createStatement();
                         //thực thi câu lệnh sql
@@ -102,14 +100,12 @@ public class docthuc extends AppCompatActivity {
             public void onClick(View v) {
                 //kết nối với csdl
                 Connection connection=SQLmanagement.connectionSQLSever();
+                Toast.makeText(docthuc.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;
                         //khởi tạo câu lệnh sql sưa thông tin trong bảng ThongTinDocThuc
-                        String sqlSua="update ThongTinDocThuc set SoDienThoai='"+sdtDT.getText().toString()+"',MaSach='"+
-                                idSachDT.getText().toString()+"',TenSach='"+tenSachDT.getText().toString()+"',HanTra='"+
-                                hanTraDT.getText().toString()+"',GhiChu='"+ghiChuDT.getText().toString()+"'where TenDocGia = '"+
-                                tenDocGiaDT.getText().toString()+"'";
+                        String sqlSua="update ThongTinDocThuc set SoDienThoai='"+sdtDT.getText().toString()+"',MaSach='"+idSachDT.getText().toString()+"',TenSach='"+tenSachDT.getText().toString()+"',HanTra='"+hanTraDT.getText().toString()+"',GhiChu='"+ghiChuDT.getText().toString()+"'where TenDocGia = '"+tenDocGiaDT.getText().toString()+"'";
                         //khởi tạo đối tượng statement
                         Statement st=connection.createStatement();
                         //thực thi câu lệnh sql
@@ -127,6 +123,7 @@ public class docthuc extends AppCompatActivity {
             public void onClick(View v) {
                 //kết nối với csdl
                 Connection connection=SQLmanagement.connectionSQLSever();
+                Toast.makeText(docthuc.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;

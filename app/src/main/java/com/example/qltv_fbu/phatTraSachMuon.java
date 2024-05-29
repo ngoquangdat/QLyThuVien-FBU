@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,13 +69,12 @@ public class phatTraSachMuon extends AppCompatActivity {
             public void onClick(View v) {
                 //kết nối csdl
                 Connection connection= SQLmanagement.connectionSQLSever();
+                Toast.makeText(phatTraSachMuon.this, "Thêm thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;
                         //tạo câu lệnh sql thêm thông tin vào bảng ThongTinPhat
-                        String sqlThem="insert into ThongTinPhat values('"+tenDGPS.getText().toString()+"','"+sdtPS.getText().toString()+
-                                "','"+maSachPS.getText().toString()+"','"+tenSachPS.getText().toString()+"','"+hanTraPS.getText().toString()
-                                +"','"+ngayTraPS.getText().toString()+"','"+tienPhatPS.getText().toString()+"')";
+                        String sqlThem="insert into ThongTinPhat values ('"+tenDGPS.getText().toString()+"','"+sdtPS.getText().toString()+"','"+maSachPS.getText().toString()+"','"+tenSachPS.getText().toString()+"','"+hanTraPS.getText().toString()+"','"+ngayTraPS.getText().toString()+"','"+tienPhatPS.getText().toString()+"')";
                         //tạo đối tượng statement
                         Statement st=connection.createStatement();
                         //thực thi câu lệnh sql
@@ -92,14 +92,12 @@ public class phatTraSachMuon extends AppCompatActivity {
             public void onClick(View v) {
                 //kết nối csdl
                 Connection connection=SQLmanagement.connectionSQLSever();
+                Toast.makeText(phatTraSachMuon.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;
                         //tạo câu lệnh sql sửa thông tin trong bảng ThongTinPhat
-                        String sqlSua="update ThongTinPhat set SoDienThoai = '"+sdtPS.getText().toString()+"', MaSach='"+
-                                maSachPS.getText().toString()+"',TenSach='"+tenSachPS.getText().toString()+"',HanTra='"+
-                                hanTraPS.getText().toString()+"',NgayTra='"+ngayTraPS.getText().toString()+"',TienPhat='"+
-                                tienPhatPS.getText().toString()+"'where TenDocGia = '"+tenDGPS.getText().toString()+"'";
+                        String sqlSua="update ThongTinPhat set SoDienThoai = '"+sdtPS.getText().toString()+"',MaSach='"+maSachPS.getText().toString()+"',TenSach='"+tenSachPS.getText().toString()+"',HanTra='"+hanTraPS.getText().toString()+"',NgayTra='"+ngayTraPS.getText().toString()+"',TienPhat='"+tienPhatPS.getText().toString()+"'where TenDocGia = '"+tenDGPS.getText().toString()+"'";
                         //tạo đối tượng statement
                         Statement st=connection.createStatement();
                         //thực thi câu lệnh sql
@@ -117,6 +115,7 @@ public class phatTraSachMuon extends AppCompatActivity {
             public void onClick(View v) {
                 //kết nối csdl
                 Connection connection=SQLmanagement.connectionSQLSever();
+                Toast.makeText(phatTraSachMuon.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
                 try {
                     if(connection!=null){
                         BreakIterator id;
