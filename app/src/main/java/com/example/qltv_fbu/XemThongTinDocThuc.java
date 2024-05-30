@@ -47,7 +47,6 @@ public class XemThongTinDocThuc extends AppCompatActivity {
         ghiChuXemDT = findViewById(R.id.ghiChuXemDT);//ánh xạ id ở ô ghi chú tương ứng với biến khai báo
         backXemDT = findViewById(R.id.backXemDT);//ánh xạ id ở button quay lại tương ứng với biến khai báo
         btnTimKemDT = findViewById(R.id.btnTimKemDT);//ánh xạ id ở imgButton tìm kiếm tương ứng với biến khai báo
-
         //hàm xử lí sự kiện khi click vào ô imgButton tìm kiếm
         btnTimKemDT.setOnClickListener(new View.OnClickListener() {
             @Override

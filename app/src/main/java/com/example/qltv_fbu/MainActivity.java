@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity {
                     logins = Logins.getuserlist(user,passwords);
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
-                }if(user.length()==0 || passwords.length() ==0){//câu lệnh if kiểm tra nếu ô tài khoản và mật khẩu bỏ trống
+                }
+                if(user.length()==0 || passwords.length() ==0){//câu lệnh if kiểm tra nếu ô tài khoản và mật khẩu bỏ trống
                     Toast.makeText(MainActivity.this, "Vui lòng nhập tài khoản hoặc mật khâu", Toast.LENGTH_SHORT).show();
                 }
                 else if(logins.getUser().equals(user) && logins.getPass().equals(passwords)){//câu lệnh if kiểm tra nếu ô tài khoản và mật khẩu trùng với csdl
